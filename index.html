@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="reviewPopup" class="modal">
+        <div id="reviewPopupWrapper" class="modal-wrapper">
+          <div class="modal-overlay"></div>
+          <section class="modal-popup">
+            <header id="modalHeaderDesktopSection" class="modal-header">
+              <h1 id="modalHeaderDesktopTitle" class="heading-3"></h1>
+            </header>
+
+            <div class="modal-body">
+              <div class="modal-content">
+                <div class="rate-box-container">
+                  <div
+                    id="modalHeaderMobileSection"
+                    class="title-section-mobile"
+                  >
+                    <h1 id="modalHeaderMobile" class="heading-3"></h1>
+                  </div>
+
+                  <div class="rate-list">
+                    <div class="rate-box-wrapper">
+                      <h1 id="txtFindabilityRating" class="body-1"></h1>
+                      <div id="findabilityRating" class="stars-container"></div>
+                    </div>
+
+                    <img
+                      id="desktopSeparator"
+                      style="display: none"
+                      class="vertical-separator"
+                      alt=""
+                      src="./src/assets/icons/vertical_separator.png"
+                    />
+
+                    <div class="rate-box-wrapper">
+                      <h1 id="txtAccuracyRating" class="body-1"></h1>
+                      <div id="accuracyRating" class="stars-container"></div>
+                    </div>
+                  </div>
+                </div>
+                <section class="comment-section">
+                  <h1 id="txtAdditionalFeedback" class="body-1"></h1>
+                  <div id="reviewContainer" class="container">
+                    <div
+                      id="txtAreaContainer"
+                      style="opacity: 0;visibility: hidden;"
+                      class="input_field_wrapper"
+                    >
+                      <svg class="form_border_wrapper">
+                        <rect
+                          class="form_border"
+                          width="100%"
+                          height="100%"
+                          rx="8px"
+                          fill="none"
+                          stroke-width="2px"
+                        />
+                        <rect
+                          class="form_focus_border"
+                          width="100%"
+                          height="100%"
+                          rx="8px"
+                          fill="none"
+                          stroke-width="2px"
+                        />
+                      </svg>
+
+                      <div class="inline_input_wrapper">
+                        <div class="input_inner_wrapper">
+                          <textarea
+                            id="reason"
+                            class="input has_counter"
+                            maxlength="250"
+                            placeholder=""
+                          ></textarea>
+                          <label
+                            class="low-emphasis"
+                            for="reason"
+                            id="labelText"
+                          ></label>
+                          <div
+                            data-invisible-label="__invisible_label"
+                            class="invisible_label"
+                            id="invisibleLabel"
+                          ></div>
+                        </div>
+                      </div>
+
+                      <p class="counter" id="letterCount">0/250</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <footer id="modal-footer" class="modal-footer">
+              <button
+                class="btn-submit"
+                id="btnSubmitReview"
+                type="button"
+              ></button>
+            </footer>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

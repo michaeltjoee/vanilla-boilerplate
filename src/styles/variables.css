@@ -1,0 +1,180 @@
+/* stylelint-disable custom-property-pattern */
+:root {
+  --color-B400: #007cff;
+
+  /* Neutral */
+  --color-N900: #18191b;
+  --color-N800: #303135;
+  --color-N700: #4d4f56;
+  --color-N600: #71747d;
+  --color-N500: #8c909e;
+  --color-N400: #aeb2be;
+  --color-N300: #c0c3cf;
+  --color-N200: #d8dce8;
+  --color-N100: #f4f7fe;
+  --color-N50: #f8f9fd;
+  --color-N0: #ffffff;
+
+  /**
+   * Typography colors
+   * keep in sync with typography constants [DUPLICATE_HARDCODED_TEXT_COLORS]
+   */
+  --font-color-high-emphasis: var(--color-N800);
+  --font-color-low-emphasis: var(--color-N600);
+  --font-color-disabled: var(--color-N400);
+  --font-color-activity: var(--color-B400);
+  --font-color-invert: var(--color-N0);
+
+  /* Typography weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /**
+   * Typography sizes & line-heights in PX (mobile)
+   */
+  --font-size-mobile-h1-px: 32px;
+  --line-height-mobile-h1-px: 38px;
+  --font-size-mobile-h2-px: 22px;
+  --line-height-mobile-h2-px: 28px;
+  --font-size-mobile-h3-px: 18px;
+  --line-height-mobile-h3-px: 24px;
+  --font-size-mobile-b1-px: 16px;
+  --line-height-mobile-b1-px: 22px;
+  --font-size-mobile-b2-px: 14px;
+  --line-height-mobile-b2-px: 20px;
+  --font-size-mobile-b3-px: 12px;
+  --line-height-mobile-b3-px: 16px;
+  --font-size-mobile-sm-px: 10px;
+  --line-height-mobile-sm-px: 14px;
+
+  /**
+   * Typography sizes & line-heights in REM (mobile)
+   * NOTE: 1rem = 16px
+   */
+  --font-size-mobile-h1-rem: 2rem;
+  --line-height-mobile-h1-rem: 2.375rem;
+  --font-size-mobile-h2-rem: 1.375rem;
+  --line-height-mobile-h2-rem: 1.75rem;
+  --font-size-mobile-h3-rem: 1.125rem;
+  --line-height-mobile-h3-rem: 1.5rem;
+  --font-size-mobile-b1-rem: 1rem;
+  --line-height-mobile-b1-rem: 1.375rem;
+  --font-size-mobile-b2-rem: 0.875rem;
+  --line-height-mobile-b2-rem: 1.25rem;
+  --font-size-mobile-b3-rem: 0.75rem;
+  --line-height-mobile-b3-rem: 1rem;
+  --font-size-mobile-sm-rem: 0.625rem;
+  --line-height-mobile-sm-rem: 0.875rem;
+
+  /**
+   * By default font-size mobile will use PX unit value
+   * Please import a11y-support.css to use REM unit value
+   */
+  --font-size-mobile-h1: var(--font-size-mobile-h1-px);
+  --line-height-mobile-h1: var(--line-height-mobile-h1-px);
+  --font-size-mobile-h2: var(--font-size-mobile-h2-px);
+  --line-height-mobile-h2: var(--line-height-mobile-h2-px);
+  --font-size-mobile-h3: var(--font-size-mobile-h3-px);
+  --line-height-mobile-h3: var(--line-height-mobile-h3-px);
+  --font-size-mobile-b1: var(--font-size-mobile-b1-px);
+  --line-height-mobile-b1: var(--line-height-mobile-b1-px);
+  --font-size-mobile-b2: var(--font-size-mobile-b2-px);
+  --line-height-mobile-b2: var(--line-height-mobile-b2-px);
+  --font-size-mobile-b3: var(--font-size-mobile-b3-px);
+  --line-height-mobile-b3: var(--line-height-mobile-b3-px);
+  --font-size-mobile-sm: var(--font-size-mobile-sm-px);
+  --line-height-mobile-sm: var(--line-height-mobile-sm-px);
+
+  /* Typography sizes & line-heights (desktop) */
+  --font-size-desktop-h1: 56px;
+  --line-height-desktop-h1: 60px;
+  --font-size-desktop-h2: 38px;
+  --line-height-desktop-h2: 42px;
+  --font-size-desktop-h3: 24px;
+  --line-height-desktop-h3: 30px;
+  --font-size-desktop-b1: 18px;
+  --line-height-desktop-b1: 24px;
+  --font-size-desktop-b2: 16px;
+  --line-height-desktop-b2: 22px;
+  --font-size-desktop-b3: 14px;
+  --line-height-desktop-b3: 20px;
+  --font-size-desktop-sm: 12px;
+  --line-height-desktop-sm: 16px;
+  --font-size-desktop-xs: 10px;
+  --line-height-desktop-xs: 14px;
+
+  /* Responsive typography (mobile-first) */
+  --font-size-h1: var(--font-size-mobile-h1);
+  --line-height-h1: var(--line-height-mobile-h1);
+  --font-size-h2: var(--font-size-mobile-h2);
+  --line-height-h2: var(--line-height-mobile-h2);
+  --font-size-h3: var(--font-size-mobile-h3);
+  --line-height-h3: var(--line-height-mobile-h3);
+  --font-size-b1: var(--font-size-mobile-b1);
+  --line-height-b1: var(--line-height-mobile-b1);
+  --font-size-b2: var(--font-size-mobile-b2);
+  --line-height-b2: var(--line-height-mobile-b2);
+  --font-size-b3: var(--font-size-mobile-b3);
+  --line-height-b3: var(--line-height-mobile-b3);
+  --font-size-sm: var(--font-size-mobile-sm);
+  --line-height-sm: var(--line-height-mobile-sm);
+  /* stylelint-disable-next-line comment-empty-line-before */
+  /* only desktop has extra-small sizing, for mobile stay with small size */
+  --font-size-xs: var(--font-size-mobile-sm);
+  --line-height-xs: var(--line-height-mobile-sm);
+
+  /* Spacing */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --layout-8: 8px;
+  --layout-12: 12px;
+  --layout-16: 16px;
+  --layout-24: 24px;
+  --layout-32: 32px;
+  --layout-48: 48px;
+  --layout-64: 64px;
+
+  /* Misc. */
+  --color-blanket-rgb: 24, 25, 27; /* Hex #18191b (color-N900) in RGB */
+  /* stylelint-disable color-function-notation */
+  --bg-color-blanket: rgba(var(--color-blanket-rgb), 0.4);
+  /* stylelint-enable color-function-notation */
+}
+
+/**
+ * Responsive starts here. Hardcoding the breakpoints instead of using SCSS so we don’t need a build process
+ * for design-tokens: `base.css` and `variables.css`. Requiring no build process makes it easy to import
+ * these files in local development storybook, Next.js project, etc.
+ *
+ * Tech debt. Could possibly be improved using [custom media queries](https://cssdb.org/#custom-media-queries)
+ *
+ * IMPORTANT: keep values in sync [DUPLICATE_HARDCODED_BREAKPOINTS]
+ */
+
+/* Large breakpoint (Large also happens to be the Desktop breakpoint for responsive phase 1) */
+@media (min-width: 840px) {
+  :root {
+    /* Responsive typography */
+    --font-size-h1: var(--font-size-desktop-h1);
+    --line-height-h1: var(--line-height-desktop-h1);
+    --font-size-h2: var(--font-size-desktop-h2);
+    --line-height-h2: var(--line-height-desktop-h2);
+    --font-size-h3: var(--font-size-desktop-h3);
+    --line-height-h3: var(--line-height-desktop-h3);
+    --font-size-b1: var(--font-size-desktop-b1);
+    --line-height-b1: var(--line-height-desktop-b1);
+    --font-size-b2: var(--font-size-desktop-b2);
+    --line-height-b2: var(--line-height-desktop-b2);
+    --font-size-b3: var(--font-size-desktop-b3);
+    --line-height-b3: var(--line-height-desktop-b3);
+    --font-size-sm: var(--font-size-desktop-sm);
+    --line-height-sm: var(--line-height-desktop-sm);
+    --font-size-xs: var(--font-size-desktop-xs);
+    --line-height-xs: var(--line-height-desktop-xs);
+  }
+}

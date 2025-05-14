@@ -1,0 +1,39 @@
+.comment-section {
+  padding: 20px var(--space-16) 0 20px;
+
+  > h1 {
+    margin-bottom: 12px;
+  }
+
+  > .btn-submit {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    margin-top: 12px;
+    font-weight: var(--font-weight-bold);
+    width: 100%;
+    border-radius: var(--space-8);
+    background-color: var(--color-B400);
+    color: var(--color-N0);
+    transition: 0.3s ease;
+
+    &.disabled {
+      background-color: var(--color-N200);
+      color: var(--font-color-disabled);
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media (min-width: 840px) {
+  .comment-section {
+    padding: 20px 20px 0 20px;
+
+    > .btn-submit {
+      margin-top: 8px;
+    }
+  }
+}

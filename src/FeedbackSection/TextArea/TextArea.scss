@@ -1,0 +1,353 @@
+$label-font-size: var(--font-size-b2);
+$label-line-height: var(--line-height-b2);
+$input-font-size: var(--font-size-b2);
+$input-line-height: var(--line-height-b2);
+$counter-font-size: var(--font-size-b3);
+$counter-line-height: var(--line-height-b3);
+$counter-padding-bottom: var(--space-8);
+$label-padding-top-focused-or-filled: var(--space-8);
+$label-font-size-focused-or-filled: var(--font-size-b3);
+$label-line-height-focused-or-filled: var(--line-height-b3);
+$z-border: 2;
+$z-label: 1;
+$z-input: 0;
+$z-counter: 1;
+$z-clickable-icon: 3;
+$x-space: 16px;
+
+.container {
+  --textarea-height: 112px;
+  position: relative;
+  isolation: isolate;
+}
+
+.input_field_wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-N0);
+  padding: 0;
+  margin: 0;
+
+  .form_border_wrapper {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    z-index: $z-border;
+  }
+}
+
+.helper_text_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 4px;
+  color: var(--color-N600);
+  overflow: hidden;
+  width: 100%;
+}
+
+.state_focused {
+  border-color: var(--color-N0);
+}
+
+.inline_input_wrapper {
+  font-size: var(--font-size-b2);
+  line-height: var(--line-height-b2);
+  display: flex;
+  flex-direction: row;
+}
+
+.left_area_wrapper {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.form_border {
+  stroke: var(--color-N200);
+  transition: all 0.2s ease-in-out;
+
+  @media (min-width: 840px) {
+    .container:not(.state_focused) .input_field_wrapper:hover & {
+      stroke: var(--color-N500);
+    }
+  }
+}
+
+.form_focus_border {
+  stroke: none;
+
+  .state_focused:not(.state_danger) & {
+    stroke: var(--color-B400);
+    stroke-dasharray: 400%;
+    stroke-dashoffset: 400%;
+    animation: dash 1s linear forwards;
+  }
+
+  @media (min-width: 840px) {
+    stroke-width: 4px;
+  }
+}
+
+.clear_button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.clickable_icon {
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: $z-clickable-icon;
+  border: 0;
+  background: transparent;
+  padding: 0 $x-space;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  &:focus-visible {
+    outline: solid 1px var(--color-B400);
+    outline-offset: -1px;
+
+    @media (min-width: 840px) {
+      outline-width: 2px;
+      outline-offset: -2px;
+    }
+  }
+}
+
+@keyframes blink {
+  50% {
+    stroke: var(--color-N200);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.input_inner_wrapper {
+  display: grid;
+  grid-template-columns: [col-1] min-content [col-2] auto [col-3] min-content [col-end];
+  grid-template-rows: [row-start] auto [row-center] auto [row-end];
+  width: 100%;
+
+  .prefix_wrapper {
+    grid-column: col-1 / col-2;
+    grid-row: row-center / row-end;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-left: 16px;
+    padding-bottom: 8px;
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: $x-space;
+    right: $x-space;
+    padding-top: 16px;
+    transition: all 0.3s ease-out;
+    text-align: initial;
+    font-size: $label-font-size;
+    line-height: $label-line-height;
+    pointer-events: none;
+    word-break: break-word;
+
+    @media (min-width: 840px) {
+      padding-top: 18px;
+    }
+  }
+
+  .invisible_label {
+    grid-column: col-1 / col-end;
+    grid-row: row-start / row-center;
+    order: -1;
+    visibility: hidden;
+    padding: 16px 16px 0;
+    transition: font-size 0.3s ease-out;
+    text-align: initial;
+    font-size: $label-font-size;
+    line-height: $label-line-height;
+    pointer-events: none;
+    word-break: break-word;
+
+    @media (min-width: 840px) {
+      padding-top: 18px;
+      padding-bottom: 0;
+    }
+  }
+
+  .right_slot_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: col-3 / col-end;
+    grid-row: row-start / row-end;
+  }
+}
+
+.with_children_only {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+.input {
+  grid-column: col-1 / col-end;
+  grid-row: row-center / row-end;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+  background: transparent;
+  border: none;
+  color: var(--font-color-high-emphasis);
+  caret-color: var(--font-color-activity);
+  outline: none;
+  padding: 0 $x-space 8px;
+  width: 100%;
+  box-shadow: none;
+
+  &:is(input) {
+    transition: all 0.3s;
+    height: 16px; // act as padding bottom when textinput empty
+
+    @media (min-width: 840px) {
+      height: 18px; // act as padding bottom when textinput empty
+    }
+  }
+
+  &:is(textarea) {
+    min-height: calc(var(--textarea-height) - $label-line-height - 16px);
+    resize: none;
+
+    &.has_counter {
+      /**
+       * need gap the height of counter (counter is position absolute)
+       * using margin instead of padding because padding looks broken when typing long text
+       * (the text is hidden behind counter)
+       */
+      padding-bottom: 0;
+      margin-bottom: calc($counter-line-height + $counter-padding-bottom);
+    }
+
+    & ~ .invisible_label {
+      padding-bottom: 0;
+    }
+  }
+
+  &:not(:disabled) {
+    + label {
+      // white background in label is required to avoid textarea content overlaps with label
+      background-color: var(--color-N0);
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--font-color-low-emphasis);
+
+    + label {
+      // grey-ish background in label is required to avoid textarea content overlaps with label
+      background-color: var(--color-N100);
+    }
+  }
+
+  &::placeholder {
+    opacity: 0;
+  }
+
+  // when input is focused or filled:
+  // set the input/textarea on active state
+  &:focus-within,
+  &:not(:placeholder-shown) {
+    padding: 0 $x-space 8px;
+    height: auto;
+
+    &:is(textarea) {
+      min-height: calc(
+        var(--textarea-height) - $label-line-height-focused-or-filled - 8px
+      );
+    }
+  }
+
+  // when input has prefix:
+  // set the input on active state
+  // IMPORTANT: need to be placed after the css rule above to handle specificity
+  &.with_prefix {
+    grid-column-start: col-2;
+    grid-row: row-center / row-end;
+    padding: 0 $x-space 8px 2px;
+    height: auto;
+  }
+
+  // when input is focused or filled or has prefix:
+  // set label on active state
+  &:focus-within + label,
+  &:not(:placeholder-shown) + label,
+  &.with_prefix + label {
+    z-index: $z-label;
+    left: $x-space;
+    right: $x-space;
+    padding-top: $label-padding-top-focused-or-filled;
+    transition: 0.2s;
+    font-size: $label-font-size-focused-or-filled;
+    line-height: $label-line-height-focused-or-filled;
+  }
+
+  // when input is focused or filled or has prefix:
+  // set invisible label on active state
+  &:focus-within ~ .invisible_label,
+  &:not(:placeholder-shown) ~ .invisible_label,
+  &.with_prefix ~ .invisible_label {
+    padding: $label-padding-top-focused-or-filled 16px 0;
+    font-size: $label-font-size-focused-or-filled;
+    line-height: $label-line-height-focused-or-filled;
+    height: auto;
+  }
+
+  &.has_clickable_icon {
+    padding-right: 0;
+    grid-column-end: col-3;
+
+    & ~ label {
+      right: 52px;
+    }
+
+    & ~ .invisible_label {
+      grid-column: col-1 / col-3;
+      padding-right: 0;
+    }
+  }
+
+  &:not(:placeholder-shown) ~ .right_slot_wrapper > .clear_button {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+.counter {
+  position: absolute;
+  bottom: 0;
+  left: $x-space;
+  right: $x-space;
+  z-index: $z-counter;
+  font-size: $counter-font-size;
+  line-height: $counter-line-height;
+  text-align: right;
+  background-color: inherit;
+  padding-bottom: var(--space-8);
+  color: var(--font-color-low-emphasis);
+}
+
+@media (min-width: 840px) {
+  .container {
+    --textarea-height: 146px;
+  }
+}
