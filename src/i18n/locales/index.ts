@@ -4,6 +4,9 @@ import type { Lang } from "./types";
 
 export const getCurrentLang = () => {
   const currentLang = (document.documentElement.lang || "en") as Lang;
+  if (currentLang !== "en" && currentLang !== "id") {
+    return "id";
+  }
   return currentLang;
 };
 
