@@ -39,14 +39,12 @@ export function setupTextArea() {
   }
 
   function updateLetterCount() {
-    const length = textarea.value.length;
-
     if (textarea.value.length > MAX_LENGTH) {
       textarea.value = textarea.value.slice(0, MAX_LENGTH);
     }
 
     if (letterCountEl) {
-      letterCountEl.textContent = `${length}/${MAX_LENGTH}`;
+      letterCountEl.textContent = `${textarea.value.length}/${MAX_LENGTH}`;
       reviewFormState.additionalFeedback = textarea.value;
     }
   }
